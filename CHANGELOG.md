@@ -72,6 +72,14 @@ openclaw.json instead of the included file.
 An OpenClaw sub-agent on a JSONL store stays under the window that spawned
 it after a `/new`; it was filed under the key's newer session.
 
+A fork's source stays on the fork's page when the source went on after the
+fork, and recall, the per-prompt hook and the start digest give the fork only
+what the source did from the fork point on. Search drops a fork's copied hits
+before the cap, so they no longer take a slot or count in the total, and `deja
+last` marks a fork beside its source. Blame no longer credits a Claude
+`--fork-session` copy with a line its source wrote, and file blame lists the
+session that wrote the file above one that only named it.
+
 ## [0.22.2] - 2026-10-17
 
 deja now reads Windsurf / Devin Desktop: Cascade's encrypted conversation
