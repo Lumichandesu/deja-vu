@@ -89,6 +89,26 @@ last` marks a fork beside its source. Blame no longer credits a Claude
 `--fork-session` copy with a line its source wrote, and file blame lists the
 session that wrote the file above one that only named it.
 
+The pre-edit note counts a fork's source only for edits after the fork, and a
+Claude Code `--resume <id> --fork-session` fork leaves its source out of the
+first prompt's recall and the first tool's note too; deja reads the source id
+from claude's command line (not on Windows).
+
+A transcript with a new mtime and the same size is no longer re-read, and one
+file that can't be appended no longer sends the rest of the pass through a full
+re-parse: a 400 MB transcript that grew 281 KB next to a touched 100 MB one
+took 25 s to index, now about 2 s.
+
+OpenClaw: a heartbeat answered with `HEARTBEAT_OK` is not a session either; a
+sub-agent whose spawning window was archived as `.zst` keeps its parent, and
+finding the spawning window reads each transcript once instead of once per
+child.
+
+Codex no longer warns on every start that deja's SessionEnd timeout was
+clamped to 3 s. After a `kimi -p` run the session is no longer hidden from
+the next session's recall for 20 minutes. In the light theme on a 256-colour
+terminal, key chips no longer melt into their panel.
+
 ## [0.22.2] - 2026-10-17
 
 deja now reads Windsurf / Devin Desktop: Cascade's encrypted conversation
